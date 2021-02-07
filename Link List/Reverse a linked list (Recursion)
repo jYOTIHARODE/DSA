@@ -1,0 +1,60 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Queue {
+    class QueueNode {
+    public:
+        int val;
+        QueueNode* next;
+        QueueNode(int val = 0) {
+            this->val = val;
+            this->next = nullptr;
+        }
+    };
+    
+    QueueNode* head;
+    QueueNode* push(QueueNode* head, int val) {
+        QueueNode* pCrawl = head;
+        if (!pCrawl) {
+            head = new QueueNode(val);
+            return head;
+        }
+
+        while (!pCrawl->next) pCrawl = pCrawl->next;
+        pCrawl->next = new QueueNode(val);
+        return head;
+    }
+
+    QueueNode* pop(QueueNode* head) {
+        if (!head || !head->next) return nullptr;
+
+        return head->next;
+    }
+
+    int front(QueueNode* head) {
+        return head->val;
+    }
+
+public:
+    Queue() {
+        head = nullptr;
+    }
+    void push(int val) {
+        head = push(head, val);
+    };
+    int front() { return front(head); };
+    void pop() {
+        head = pop(head);
+    };
+};
+
+int main() {
+    Queue Q;
+    Q.push(1);
+    Q.push(2);
+    Q.push(3);
+    Q.push(4);
+    cout << Q.front() << endl;
+    // Q.pop();
+    cout << Q.front() << endl;
+}
