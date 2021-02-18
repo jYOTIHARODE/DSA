@@ -1,0 +1,36 @@
+#include <bits/stdc++.h> 
+using namespace std; 
+ 
+string leastLexiString(string s) 
+{ 
+	// Base Case - If string size is 1 
+	if (s.size() & 1) 
+		return s; 
+
+	// Divide the string into its two halves 
+	string x = leastLexiString(s.substr(0,s.size() / 2)); 
+	string y = leastLexiString(s.substr(s.size() / 2)); 
+
+	return min(x + y, y + x); 
+} 
+
+bool areEquivalent(string a, string b) 
+{ 
+    return (leastLexiString(a) == leastLexiString(b)); 
+} 
+
+int main() 
+{ 
+	string a = "aaba"; 
+	string b = "abaa"; 
+	if (areEquivalent(a, b))	cout << "YES" << endl; 
+	else
+		cout << "NO" << endl; 
+
+	a = "aabb"; 
+	b = "abab"; 
+	if (areEquivalent(a, b))    cout << "YES" << endl; 
+	else
+		cout << "NO" << endl; 
+	return 0; 
+} 
