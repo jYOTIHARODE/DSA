@@ -20,3 +20,5 @@ int main()
 }
 
 //theta of Log n 
+// STL function  __builtin_popcount(n);
+
