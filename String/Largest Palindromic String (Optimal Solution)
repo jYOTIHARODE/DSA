@@ -1,0 +1,52 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+string solve(string &s)
+{
+    int n = s.length();
+    int T[n][n];    //boolean table for checking condition that string is palindrome or not 
+    
+    memset(T,false,sizeof(T));  //set all elements  0
+    for(int i=0 ; i<n ; i++)
+        T[i][i]=true; //diagonal elements must be true
+
+    int len=1;  //["a" = palindrome] 
+    int start=0;
+
+    for(int i=0 ; i<n-1 ; i++)  //for checking 2 elements 
+    {
+        if(s[i]==s[i+1])
+        {
+            T[i][i+1]=true;
+            len=2;
+            start=i;
+        }
+    }
+
+    for(int k=3 ; k<=n ; k++)
+    {
+        for(int i=0 ; i<n-k+1 ; i++)
+        {
+            int j = i+k-1;
+            if(s[i]==s[j] && T[i+1][j-1])//diagonal is true or not 
+            {
+                T[i][j]=true;
+                if(len<k)
+                {
+                    len=k;
+                    start = i;
+                }
+            }
+        }
+    }
+    return s.substr(start,len);
+}
+
+int main()
+{
+    string s; cin>>s;
+    cout<<solve(s);
+    return 0;
+}
+
+//Time Complexity-O(n^2)
