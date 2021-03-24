@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+bool solve(int n,int diff,vector<int>arr)
+{
+    int i=0;
+    int j=1;
+
+    //searching for a pair
+    while(i<n and j<n)
+    {
+        if(i!=j and arr[j]-arr[i]==diff)
+        {
+                cout<<"Pair found ("<<arr[i]<<","<<arr[j]<<")";
+                return  true;
+        }
+        else if(arr[j]-arr[i]<diff)
+        {
+            j++;
+        }
+        else
+            i++;
+    }
+    cout<<"No such pair\n";
+    return false;
+}
+
+int main()
+{
+    int n; cin>>n;
+    int diff; cin>>diff;
+    vector<int>arr(n);
+    for(int i=0 ; i<n ; i++)    cin>>arr[i];
+    cout<<solve(n,diff,arr);
+    return 0;
+}
