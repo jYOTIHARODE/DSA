@@ -1,0 +1,12 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    vector<int>v = {2,4-5};
+    cout<<all_of(v.begin(),v.end(),
+    [](int x){return x>0;})<<endl;//all are >0 then return 1 otherwise 0
+    cout<<any_of(v.begin(),v.end(),
+    [](int x){return x>0;})<<endl;//any of the element is >0 then return true else false
+    cout<<none_of(v.begin(),v.end(),
+    [](int x){return x>0;})<<endl;//none of the element >0 then return true else false
+}
