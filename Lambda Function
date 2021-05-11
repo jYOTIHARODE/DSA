@@ -1,0 +1,9 @@
+//add 2 in the given integer with the help of lambda function 
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    cout<<[](int x){return x+2;}(2)<<endl;
+}
