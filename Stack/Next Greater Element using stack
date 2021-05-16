@@ -1,0 +1,34 @@
+//O(n)
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<int>NGE(vector<int>&A)
+{
+    stack<int>S;
+    int n = A.size();
+    vector<int>res(n);
+    for(int i=n-1 ; i>=0 ; i--)
+    {
+        while(!S.empty() && S.top()<=A[i])
+        S.pop();
+
+        if(S.empty())    res[i]=-1;
+        else
+        res[i]=S.top();
+        S.push(A[i]);
+
+        for(int i:res)
+            cout<<" ";
+    }
+    return res;
+}
+
+int main()
+{
+    vector<int>A = {6,1,3,8,5};
+    vector<int>ans;
+    ans = NGE(A);
+
+    for(int i=0 ; i<5 ; i++)
+        cout<<ans[i]<<" ";
+}
