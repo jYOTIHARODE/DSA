@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int prod(vector<int>arr,int n)
+{
+    int ans = arr[0];
+    for(int i=0 ; i<n ; i++)
+    {
+        int mul = arr[i];
+        for(int j=i+1 ; j<n ; j++)
+        {
+            ans = max(ans,mul);
+            mul*=arr[j];
+        }
+        ans = max(mul,ans);
+    }
+    return ans;
+}
+
+int main()
+{
+    int n; cin>>n;
+    vector<int>arr(n);
+    for(int i=0 ; i<n ; i++)    cin>>arr[i];
+    cout<<prod(arr,n)<<endl;
+    return 0;
+}
