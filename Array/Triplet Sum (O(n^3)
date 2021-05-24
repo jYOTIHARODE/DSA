@@ -39,3 +39,32 @@ int main()
     cout<<find3Numbers(arr,n,13)<<endl;
     return 0;
 }
+
+// Time Complexity: O(n2)
+// Space Complexity: O(1)
+// Approach:By Sorting the array the efficiency of the algorithm can be improved. This efficient approach uses the two-pointer technique. 
+//Traverse the array and fix the first element of the triplet. Now use the Two Pointers algorithm to find if there is a pair whose sum is equal to x – array[i].
+//Two pointers algorithm take linear time so it is better than a nested loop.
+
+
+void printTriplet(int arr[],int n,int target)
+{
+   sort(arr,arr+n);
+    int l,h;
+   for(int i=0;i<n-2;i++)
+   {
+     int l=i+1;
+     int h=n-1;
+     while(l<h)
+     {
+          if(arr[i]+arr[l]+arr[h]==target)
+          {
+             cout<<arr[i]<<" "<<arr[l]<<" "<<arr[h]<<endl;
+              l++;h--;
+           }
+          else if(arr[i]+arr[l]+arr[h]>target)
+             h--;
+           else l++;
+       }
+    }
+}
