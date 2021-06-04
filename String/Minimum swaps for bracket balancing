@@ -1,0 +1,41 @@
+//Input: [ ] ] [ ] [
+//       ^ ^ ^ ^ ^ ^
+//       1 2 3 4 5 6
+//Output: 2
+//1st swap position 3 and 4 [ ] [ ] ] [
+//2nd swap position 5 and 6 [ ] [ ] [ ]
+// Time Complexity - O(N^2)
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int count(string s)
+{
+    int ans = 0;
+    int open  = 0;
+    int close = 0;
+    for(int i=0 ; i<s.size() ; i++)
+    {
+        if(s[i]=='[')
+        {
+            ans+=close;
+            if(close>0)
+                close--;
+            else
+                open++;
+        }
+        if(s[i]==']')
+            if(open>0)
+                open--;
+            else    
+                close++;
+    }
+    return ans;
+}
+
+int main()
+{
+    string s; cin>>s;
+    cout<<count(s);
+    return 0;
+}
