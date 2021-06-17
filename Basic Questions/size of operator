@@ -1,0 +1,12 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int a;
+    char ch;
+    float f;
+    cout<<"size of int = "<<sizeof(a)<<endl;
+    cout<<"size of character = "<<sizeof(ch)<<endl;
+    cout<<"size of float = "<<sizeof(f)<<endl;
+    return 0;
+}
