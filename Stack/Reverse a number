@@ -1,0 +1,32 @@
+// reverse a number with the help of stack
+#include<bits/stdc++.h>
+using namespace std;
+
+
+int rev(int num)
+{
+    stack<int>S;
+    while(num)
+    {
+        int x = num%10;
+        S.push(x);
+        num/=10;
+    }
+    num=0;
+    int i=1;
+    while(!S.empty())
+    {
+        int x = S.top();
+        S.pop();
+        num = num+x*i;
+        i=i*10;
+    }
+    return num;
+}
+
+int main()
+{
+    int n; cin>>n;
+    cout<<rev(n);
+    return 0;
+}
