@@ -1,0 +1,29 @@
+// Input :  a = 7, b = 10, c = 5 
+// Output : Valid
+
+// Input : a = 1 b = 10 c = 12 
+// Output : Invalid
+
+// Approach: A triangle is valid if sum of its two sides is greater than the third side. 
+// If three sides are a, b and c, then three conditions should be met. 
+// 1.a + b > c 
+// 2.a + c > b 
+// 3.b + c > a  
+
+#include<bits/stdc++.h>
+using namespace std;
+
+bool solve(int a,int b,int c)
+{
+    if(a+b<=c or b+c<=a or c+a<=b) return false;
+    else    return true;
+}
+
+int main()
+{
+    int a, b, c; cin>>a>>b>>c;
+    int res = solve(a,b,c);
+    if(res==1)  cout<<"valid Triangle"<<endl;
+    else    cout<<"Invalid Traingle"<<endl;
+    return 0;
+}
