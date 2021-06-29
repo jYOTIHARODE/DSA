@@ -1,0 +1,44 @@
+// Method 2 (Using Single Traversal)
+#include<bits/stdc++.h>
+using namespace std;
+
+struct Node
+{
+    int data;
+    struct Node* left = nullptr;
+    struct Node* right = nullptr;
+};
+
+struct Node * newNode(int data)
+{
+    Node* temp = new Node;
+    temp->data = data;
+    temp->left = nullptr;
+    temp->right = nullptr;
+    return temp;
+};
+
+struct Node* findLCA(struct Node* root , int n1 , int n2)
+{
+    if(root == nullptr) return nullptr;
+    if(root->data==n1 or root->data==n2)
+        return root;    
+    Node* left_lca = findLCA(root->left,n1,n2);
+    Node* right_lca = findLCA(root->right,n1,n2);
+    if(left_lca && right_lca)   return root;
+    return (left_lca!=nullptr)?left_lca:right_lca;
+}
+
+int main()
+{
+    Node * root = newNode(1);
+    root->left = newNode(2);
+    root->right = newNode(3);
+    root->left->left = newNode(4);
+    root->left->right = newNode(5);
+    root->right->left = newNode(6);
+    root->right->right = newNode(7);
+
+    cout<<"LCA(4,5) = "<<findLCA(root , 4,5) ->data<<endl;
+    return 0;
+}
