@@ -1,0 +1,19 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+double pow(double x, int n)
+{
+    if(n==0)    return 1;
+    double ans = pow(x,n/2);
+    ans*=ans;
+    if(n>0)
+        return (n%2==0)?ans:x*ans;
+    return (n%2==0)?ans:ans/x;
+}
+
+int main()
+{
+    double x,n; cin>>x>>n;
+    cout<<pow(x,n);
+    return 0;
+}
