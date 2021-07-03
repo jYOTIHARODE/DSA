@@ -18,12 +18,12 @@ bool BalancedParenthesis(string s)
             S.pop();
         }
     }
-    return true;
+    return (S.empty());
 }
 
 int main()
 {
-    string s="{{}}]";
+    string s="[(";
     if(BalancedParenthesis(s))
         cout<<"Balanced\n";
     else
