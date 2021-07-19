@@ -1,0 +1,30 @@
+//Time Complexity: O(n2^n)
+#include<bits/stdc++.h>
+using namespace std;
+
+class Power
+{
+    public:
+    void PowerSet(char *set  , int setSize)
+    {
+        int PowerSetSize = pow(2,setSize);
+        int i,j;
+        for(int i=0 ; i<PowerSetSize ; i++)
+        {
+            for(int j=0 ; j<setSize ; j++)
+            {
+                if(i&(1<<j))
+                    cout<<set[j];
+            }
+            cout<<endl;
+        }
+    }
+};
+
+int main()
+{
+    Power P;
+    char set[] = {'a','b','c'};
+    P.PowerSet(set,3);
+    return 0;
+}
