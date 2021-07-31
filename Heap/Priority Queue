@@ -1,0 +1,28 @@
+//by default STL create Maxheap
+//Maxheap- priority_queue<int,vector<int>>PQ;//2 parameters
+//Minheap - pririty_queue<int,vector<int>,greater<int>>PQ;//3 parameters
+//Time Complexities - Push->log n    pop->log n    top->O(1)   size->O(1)
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    priority_queue<int,vector<int>>pqMax;//MaxHeap
+    pqMax.push(2);
+    pqMax.push(3);
+    pqMax.push(1);
+
+    cout<<"Top of maxheap = "<<pqMax.top()<<endl;
+    pqMax.pop();
+    cout<<"Top of minheap = "<<pqMax.top()<<endl;
+
+    priority_queue<int,vector<int>,greater<int>>pqMin;//minheap
+    pqMin.push(1);
+    pqMin.push(3);
+    pqMin.push(2);
+
+    cout<<"Top of minheap = "<<pqMin.top()<<endl;
+    pqMin.pop();
+    cout<<"Top of minheap = "<<pqMin.top()<<endl;
+}
