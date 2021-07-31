@@ -1,3 +1,4 @@
+//Time Complexity: O(n Log n) 
 //arr[] = {}//value reperesents no. of chocolates in a packet
 //Each pachet have variable number of cholocates 
 //m students , the task is to distribute chocolate packets such that :
